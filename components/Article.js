@@ -93,7 +93,6 @@ const data = [
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
-
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -101,9 +100,51 @@ const data = [
     {three separate paragraph elements}
 
     <span class="expandButton">+</span>
-  </div>
+  </div>*/
+const articles = document.querySelector('.articles')
 
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+function articleMaker(data){
+  const article =         document.createElement('div')
+  const articleTitle =    document.createElement('h2')
+  const date =            document.createElement('p')
+  const firstPara =       document.createElement('p')
+  const secondPara =      document.createElement('p')
+  const thridPara =       document.createElement('p')
+  const span =            document.createElement('span')
+
+
+  article.appendChild(articleTitle)
+  article.appendChild(date)
+  article.appendChild(firstPara)
+  article.appendChild(secondPara)
+  article.appendChild(thridPara)
+  article.appendChild(span)
+
+  article.classList.add('article')
+  date.classList.add('date')
+  span.classList.add('expandButton')
+
+  articleTitle.textContent = data.title
+  date.textContent =         data.date
+  firstPara.textContent =    data.firstParagraph
+  secondPara.textContent =   data.secondParagraph
+  thridPara.textContent =    data.thirdParagraph
+
+  span.addEventListener('click', () =>{
+     article.classList.toggle('.article-open');
+
+  
+  })
+  return article
+}
+
+data.forEach(data => {
+  const article = articleMaker(data)
+  articles.appendChild(article)
+}) 
+
+
+  /*Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
   Step 3: Don't forget to return something from your function!
