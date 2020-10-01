@@ -8,34 +8,11 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
-// Step 1
-// function menuMaker(arr){
-//   const menu = document.createElement('div');
-//   menu.classList.add('menu');
-//   const menuList = document.createElement('ul');
-//   menu.appendChild(menuList);
-  
-//   // Step 2
-//   arr.forEach(items => {
-//     const listItem = document.createElement('li');
-//     listItem.textContent = items
-//     menuList.appendChild(listItem);
-//   });
-//   // Step 3
-//   const menuButton = document.querySelector('.menu-button');
-//   // Step 4
-//   menuButton.addEventListener('click', function(){
-//   menu.classList.toggle('menu--open');
-// });
-//   // Step 5
-//   return menu;
-// };
-// // Step 6
-// menuMaker(menuItems);
+
 
 function menuMaker(array){
-  const menu = document.createElement('menu')
-  const list = document.createElement('li')
+  const menu = document.createElement('div')
+  const list = document.createElement('ul')
 
   menu.classList.add('menu')
   menu.appendChild(list)
@@ -48,12 +25,18 @@ function menuMaker(array){
   });
   const menuButton = document.querySelector('.menu-button')
   menuButton.addEventListener('click', function(){
-    menuButton.classList.toggle('menu--open')
+    menu.classList.toggle('menu--open')
   });
   console.log(menu)
   return menu
 }
-menuMaker(menuItems)
+document.querySelector('div.header').appendChild(menuMaker(menuItems));
+
+
+
+
+
+
 
  /* Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
