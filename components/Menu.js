@@ -9,32 +9,53 @@ let menuItems = [
   'Log Out'
 ];
 // Step 1
-function menuMaker(arr){
-  const menu = document.createElement('div');
-  menu.classList.add('menu');
-  const menuList = document.createElement('ul');
-  menu.appendChild(menuList);
-  const header = ('header')
-  header.appendChild(menu)
-  // Step 2
-  arr.forEach(items => {
-    const listItem = document.createElement('li');
-    listItem.textContent = items
-    menuList.appendChild(listItem);
+// function menuMaker(arr){
+//   const menu = document.createElement('div');
+//   menu.classList.add('menu');
+//   const menuList = document.createElement('ul');
+//   menu.appendChild(menuList);
+  
+//   // Step 2
+//   arr.forEach(items => {
+//     const listItem = document.createElement('li');
+//     listItem.textContent = items
+//     menuList.appendChild(listItem);
+//   });
+//   // Step 3
+//   const menuButton = document.querySelector('.menu-button');
+//   // Step 4
+//   menuButton.addEventListener('click', function(){
+//   menu.classList.toggle('menu--open');
+// });
+//   // Step 5
+//   return menu;
+// };
+// // Step 6
+// menuMaker(menuItems);
+
+function menuMaker(array){
+  const menu = document.createElement('menu')
+  const list = document.createElement('li')
+
+  menu.classList.add('menu')
+  menu.appendChild(list)
+
+  array.forEach(items => {
+     const listItem = document.createElement('li');
+     listItem.textContent = items
+     list.appendChild(listItem);
+  
   });
-  // Step 3
-  const menuButton = document.querySelector('.menu-button');
-  // Step 4
+  const menuButton = document.querySelector('.menu-button')
   menuButton.addEventListener('click', function(){
-  menu.classList.toggle('menu--open');
-});
-  // Step 5
-  return menu;
-};
-// Step 6
-menuMaker(menuItems);
-/* 
-  Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+    menuButton.classList.toggle('menu--open')
+  });
+  console.log(menu)
+  return menu
+}
+menuMaker(menuItems)
+
+ /* Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
   <div class="menu">
     <ul>
@@ -53,5 +74,4 @@ menuMaker(menuItems);
 
   Step 5: Don't forget to return your div.menu.
 
-  Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
-*/
+  Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.*/
